@@ -86,12 +86,12 @@ st.markdown("Hendrik sniffs glue")
 
 # --- SIDEBAR ---
 with st.sidebar:
-    st.header("1. Feedstock Selection")
+    st.header("1. Feedstock Metrics")
     use_fa = st.checkbox("Include Fly Ash", value=True)
     use_sf = st.checkbox("Include Silica Fume", value=True)
 
     st.markdown("---")
-    st.header("2. Chemistry")
+    st.header("Chemistry")
 
     with st.expander("Binder Composition", expanded=True):
         st.subheader("GP Cement")
@@ -318,3 +318,4 @@ else:
     st.info(
 
         f"**Add Admixtures:** 💧 WR: {vol_wr_mL:.1f} mL | 🍯 VMA: {vol_vm_mL:.1f} mL | ⚡ Accel: {vol_accel_mL:.1f} mL")
+

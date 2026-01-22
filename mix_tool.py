@@ -126,9 +126,6 @@ with st.sidebar:
         sand_abs = st.number_input("Absorption Capacity (%)", value=0.39, step=0.01, min_value=0.0)
 
     st.markdown("---")
-    if st.button("🔴 EXIT APP"):
-        st.warning("Shutting down...")
-        os._exit(0)
 
 # --- DETERMINE LOGIC & BOUNDS ---
 
@@ -314,4 +311,5 @@ else:
     )
 
     st.info(
+
         f"**Add Admixtures:** 💧 WR: {vol_wr_mL:.1f} mL | 🍯 VMA: {vol_vm_mL:.1f} mL | ⚡ Accel: {vol_accel_mL:.1f} mL")

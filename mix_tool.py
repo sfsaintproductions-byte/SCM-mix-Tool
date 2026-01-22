@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 import os
 
-
 # ==========================================
 # 1. SOLVER LOGIC
 # ==========================================
@@ -98,7 +97,13 @@ with st.sidebar:
         st.subheader("GP Cement")
         c3s = st.number_input("C3S (%)", value=11.8, step=0.1, min_value=0.0)
         c2s = st.number_input("C2S (%)", value=41.0, step=0.1, min_value=0.0)
-        nCa_cem = (c3s * 0.252 + c2s * 0.039) / 74.093
+        
+        # --- NEW SECTION: CH YIELDS ---
+        with st.expander("⚙️ Modify CH Yield Constants", expanded=False):
+            yield_c3s = st.number_input("Yield C3S (g CH/g)", value=0.252, step=0.001, format="%.3f")
+            yield_c2s = st.number_input("Yield C2S (g CH/g)", value=0.039, step=0.001, format="%.3f")
+            
+        nCa_cem = (c3s * yield_c3s + c2s * yield_c2s) / 74.093
         st.caption(f"Yield: {nCa_cem:.4f} mol CH/100g")
 
         nSi_fa, nAl_fa, ratio_fa = 0, 0, 0
@@ -313,4 +318,3 @@ else:
     st.info(
 
         f"**Add Admixtures:** 💧 WR: {vol_wr_mL:.1f} mL | 🍯 VMA: {vol_vm_mL:.1f} mL | ⚡ Accel: {vol_accel_mL:.1f} mL")
-

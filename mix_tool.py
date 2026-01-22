@@ -283,7 +283,7 @@ else:
     else:
         st.caption(f"ℹ️ **Status:** {wb_status}. Admix added **{total_adm_water_kg:.3f} kg** extra water.")
 
-    st.success("### 📋 Weighing Sheet")
+    st.success("### 📋 Batch Card")
 
     if m_water_added < 0:
         st.warning(f"⚠️ **WARNING:** Sand is too wet! You have {abs(m_water_added):.3f} kg excess water.")
@@ -313,3 +313,4 @@ else:
     st.info(
 
         f"**Add Admixtures:** 💧 WR: {vol_wr_mL:.1f} mL | 🍯 VMA: {vol_vm_mL:.1f} mL | ⚡ Accel: {vol_accel_mL:.1f} mL")
+
